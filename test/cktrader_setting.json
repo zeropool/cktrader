@@ -1,0 +1,18 @@
+{
+    "Gateway":
+	[
+		{
+			"name":"ctp",
+			"fileAddress":"E:\\2106\\c++\\cktrader\\x64\\Debug\\CTPGateway.dll",
+			"tdAddress":"123",
+			"mdAddress":"123"
+		},
+	],
+	"strategy":
+	[
+		{
+			"name":"double ema",
+			"fileAddress":"DoubleEmaDemo"
+		},
+	]
+}
