@@ -37,7 +37,8 @@ private:
 	std::atomic<bool> m_active = false;//事件服务是否开始处理的标志
 	std::multimap<std::string, Handler> *handlers = nullptr;
 
-	mutable std::recursive_mutex the_mutex;		//互斥锁
+	mutable std::recursive_mutex the_mutex_handlers;		//互斥锁
+	mutable std::condition_variable_any cv_handlers;
 
 	std::thread* m_timer_thread = nullptr;;//for timer
 };

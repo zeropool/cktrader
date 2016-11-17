@@ -6,7 +6,7 @@
 
 namespace cktrader {
 
-EventEngine::EventEngine():the_mutex(), m_active(false)
+EventEngine::EventEngine():the_mutex_handlers(), m_active(false), cv_handlers()
 {
 	m_task_thread_pool = nullptr;
 
@@ -17,7 +17,7 @@ EventEngine::EventEngine():the_mutex(), m_active(false)
 	m_timer_thread = nullptr;;//for timer
 }
 
-EventEngine::EventEngine(EventEngine& engine):the_mutex(), m_active(false)
+EventEngine::EventEngine(EventEngine& engine):the_mutex_handlers(), m_active(false), cv_handlers()
 {
 	m_task_thread_pool = engine.m_task_thread_pool;
 
@@ -30,8 +30,6 @@ EventEngine::EventEngine(EventEngine& engine):the_mutex(), m_active(false)
 
 EventEngine::~EventEngine()
 {
-	std::lock_guard<std::recursive_mutex> lck(the_mutex);
-
 	m_active = false;
 
 	//删除任务处理线程池
@@ -70,23 +68,27 @@ EventEngine::~EventEngine()
 
 bool EventEngine::registerHandler(std::string type, Handler f)
 {
+	the_mutex_handlers.lock();
 	if (!handlers)
 	{
 		return false;
 	}
 
 	handlers->insert(std::make_pair(type, f));
+	the_mutex_handlers.unlock();
 	return true;
 }
 
 bool EventEngine::unRegisterHandler(std::string type)
 {
+	the_mutex_handlers.lock();
 	if (!handlers)
 	{
 		return false;
 	}
 	
 	handlers->erase(type);
+	the_mutex_handlers.unlock();
 	return true;
 }
 
@@ -182,7 +184,9 @@ void EventEngine::processTask()
 		}else
 		{
 			std::pair <std::multimap<std::string, Handler>::iterator, std::multimap<std::string, Handler>::iterator> ret;
+			the_mutex_handlers.lock();
 			ret = handlers->equal_range(task.type);
+			the_mutex_handlers.unlock();
 
 			for (std::multimap<std::string, Handler>::iterator it = ret.first; it != ret.second; ++it)
 			{

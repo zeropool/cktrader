@@ -1,15 +1,15 @@
 ﻿  servicemgr.cpp
-e:\2106\c++\cktrader\include\utils\datablk.h(88): warning C4251: 'Datablk::m_ptr': class 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>' needs to have dll-interface to be used by clients of struct 'Datablk'
+e:\2106\c++\cktrader\include\utils\datablk.h(91): warning C4251: 'Datablk::m_ptr': class 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>' needs to have dll-interface to be used by clients of struct 'Datablk'
           with
           [
               _Ty=Datablk::Base
           ]
-  e:\2106\c++\cktrader\include\utils\datablk.h(58): note: see declaration of 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>'
+  e:\2106\c++\cktrader\include\utils\datablk.h(61): note: see declaration of 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>'
           with
           [
               _Ty=Datablk::Base
           ]
-e:\2106\c++\cktrader\include\utils\datablk.h(89): warning C4251: 'Datablk::m_tpIndex': class 'std::type_index' needs to have dll-interface to be used by clients of struct 'Datablk'
+e:\2106\c++\cktrader\include\utils\datablk.h(92): warning C4251: 'Datablk::m_tpIndex': class 'std::type_index' needs to have dll-interface to be used by clients of struct 'Datablk'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\typeindex(19): note: see declaration of 'std::type_index'
 e:\2106\c++\cktrader\include\utils\cktypes.h(17): warning C4251: 'Task::type': class 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>' needs to have dll-interface to be used by clients of struct 'Task'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2633): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
@@ -183,11 +183,13 @@ e:\2106\c++\cktrader\include\utils\cktypes.h(247): warning C4251: 'CancelOrderRe
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2633): note: see declaration of 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>'
 e:\2106\c++\cktrader\include\eventservice\eventengine.h(37): warning C4251: 'cktrader::EventEngine::m_active': struct 'std::atomic<bool>' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\xxatomic(180): note: see declaration of 'std::atomic<bool>'
-e:\2106\c++\cktrader\include\eventservice\eventengine.h(40): warning C4251: 'cktrader::EventEngine::the_mutex': class 'std::recursive_mutex' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
+e:\2106\c++\cktrader\include\eventservice\eventengine.h(40): warning C4251: 'cktrader::EventEngine::the_mutex_handlers': class 'std::recursive_mutex' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\mutex(91): note: see declaration of 'std::recursive_mutex'
+e:\2106\c++\cktrader\include\eventservice\eventengine.h(41): warning C4251: 'cktrader::EventEngine::cv_handlers': class 'std::condition_variable_any' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\condition_variable(22): note: see declaration of 'std::condition_variable_any'
 e:\2106\c++\cktrader\include\servicemgr_iml.h(56): warning C4251: 'cktrader::ServiceMgr::the_mutex': class 'std::recursive_mutex' needs to have dll-interface to be used by clients of class 'cktrader::ServiceMgr'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\mutex(91): note: see declaration of 'std::recursive_mutex'
-e:\2106\c++\cktrader\src\tradercore\servicemgr.cpp(284): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+e:\2106\c++\cktrader\src\tradercore\servicemgr.cpp(272): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
   json11.cpp
   Generating Code...
      Creating library E:\2106\c++\cktrader\x64\Debug\tradercore.lib and object E:\2106\c++\cktrader\x64\Debug\tradercore.exp

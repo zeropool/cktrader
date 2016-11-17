@@ -11,6 +11,7 @@
 #include <map>
 #include <mutex>
 #include <string>
+#include <atomic>
 
 namespace cktrader {
 
@@ -129,11 +130,11 @@ namespace cktrader {
 
 		CThostFtdcTraderApi* api;
 
-		int reqID = 0;//²Ù×÷ÇëÇó±àºÅ
-		int orderRef = 0;// ¶©µ¥±àºÅ
+		std::atomic<int> reqID = 0;//²Ù×÷ÇëÇó±àºÅ
+		std::atomic<int> orderRef = 0;// ¶©µ¥±àºÅ
 
-		bool connectionStatus = false;//      Á¬½Ó×´Ì¬
-		bool loginStatus = false;// µÇÂ¼×´Ì¬
+		std::atomic<bool> connectionStatus = false;//      Á¬½Ó×´Ì¬
+		std::atomic<bool> loginStatus = false;// µÇÂ¼×´Ì¬
 
 		std::string userID;// ÕËºÅ
 		std::string password;//ÃÜÂë

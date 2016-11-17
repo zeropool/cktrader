@@ -58,8 +58,6 @@ CTPGateWay::~CTPGateWay()
 
 void CTPGateWay::onTick(TickData& tick)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_TICK;
 	e1.task_data = tick;
@@ -73,8 +71,6 @@ void CTPGateWay::onTick(TickData& tick)
 
 void CTPGateWay::onTrade(TradeData& trade)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_TRADE;
 	e1.task_data = trade;
@@ -88,8 +84,6 @@ void CTPGateWay::onTrade(TradeData& trade)
 
 void CTPGateWay::onOrder(OrderData& order)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_ORDER;
 	e1.task_data = order;
@@ -103,8 +97,6 @@ void CTPGateWay::onOrder(OrderData& order)
 
 void CTPGateWay::onPosition(PositionData& position)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_POSITION;
 	e1.task_data = position;
@@ -118,8 +110,6 @@ void CTPGateWay::onPosition(PositionData& position)
 
 void CTPGateWay::onAccount(AccountData& account)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_ACCOUNT;
 	e1.task_data = account;
@@ -133,8 +123,6 @@ void CTPGateWay::onAccount(AccountData& account)
 
 void CTPGateWay::onError(ErrorData& error)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_ERROR;
 	e1.task_data = error;
@@ -143,8 +131,6 @@ void CTPGateWay::onError(ErrorData& error)
 
 void CTPGateWay::onLog(LogData& log)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_LOG;
 	e1.task_data = log;
@@ -153,8 +139,6 @@ void CTPGateWay::onLog(LogData& log)
 
 void CTPGateWay::onContract(ContractData& contract)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	Task e1;
 	e1.type = EVENT_CONTRACT;
 	e1.task_data = contract;
@@ -163,13 +147,11 @@ void CTPGateWay::onContract(ContractData& contract)
 
 std::string CTPGateWay::getName()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	return gateWayName;
 }
 
 EventEngine* CTPGateWay::getEventEngine()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	return m_event_service;
 }
 
@@ -179,8 +161,6 @@ void CTPGateWay::connect(std::string& userID,
 						std::string& mdAddress,
 						std::string& tdAddress)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	md->connect(userID, password, brokerID, mdAddress);
 	td->connect(userID, password, brokerID, tdAddress);
 
@@ -189,29 +169,21 @@ void CTPGateWay::connect(std::string& userID,
 
 void CTPGateWay::subscribe(SubscribeReq& subReq)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	md->subscribe(subReq);
 }
 
 std::string CTPGateWay::sendOrder(OrderReq& orderReq)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	return td->sendOrder(orderReq);
 }
 
 void CTPGateWay::cancelOrder(CancelOrderReq& cancelOrderReq)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	td->cancelOrder(cancelOrderReq);
 }
 
 void CTPGateWay::qryAccount()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	if (tdConnected)
 	{
 		td->qryAccount();
@@ -219,8 +191,6 @@ void CTPGateWay::qryAccount()
 }
 void CTPGateWay::qryPosition()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	if (tdConnected)
 	{
 		td->qryPosition();
@@ -228,8 +198,6 @@ void CTPGateWay::qryPosition()
 }
 void CTPGateWay::close()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	if (mdConnected)
 	{
 		md->close();
@@ -242,8 +210,6 @@ void CTPGateWay::close()
 
 void CTPGateWay::query(Datablk& notUse)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	qryCount++;
 	if (qryCount == 1)
 	{

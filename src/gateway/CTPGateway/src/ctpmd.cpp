@@ -34,8 +34,11 @@ namespace cktrader {
 	///当客户端与交易后台建立起通信连接时（还未登录前），该方法被调用。
 	void CtpMd::OnFrontConnected()
 	{
+		CtpData data = CtpData();
+
 		Task task = Task();
 		task.type = MDONFRONTCONNECTED;
+		task.task_data = data;
 		m_event_service->put(task);
 	}
 
@@ -177,7 +180,6 @@ namespace cktrader {
 
 	void CtpMd::processFrontConnected(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		connectionStatus = true;
 
 		CtpData ctpdata = data.cast<CtpData>();
@@ -203,7 +205,6 @@ namespace cktrader {
 
 	void CtpMd::processFrontDisconnected(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		connectionStatus = false;
 		loginStatus = false;
 		gateWay->mdConnected = false;
@@ -218,8 +219,6 @@ namespace cktrader {
 
 	void CtpMd::processRspUserLogin(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctpdata = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctpdata.task_error.cast<CThostFtdcRspInfoField>();
@@ -250,8 +249,6 @@ namespace cktrader {
 
 	void CtpMd::processRspUserLogout(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctpdata = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctpdata.task_error.cast<CThostFtdcRspInfoField>();
@@ -277,8 +274,6 @@ namespace cktrader {
 
 	void CtpMd::processRspError(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctpdata = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctpdata.task_error.cast<CThostFtdcRspInfoField>();
@@ -292,8 +287,6 @@ namespace cktrader {
 
 	void CtpMd::processRtnDepthMarketData(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctpdata = data.cast<CtpData>();
 
 		CThostFtdcDepthMarketDataField task_data = ctpdata.task_data.cast<CThostFtdcDepthMarketDataField>();
@@ -333,7 +326,6 @@ namespace cktrader {
 	///
 	void CtpMd::connect(std::string userID, std::string password, std::string brokerID, std::string mdAddress)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		this->userID = userID;
 		this->password = password;
 		this->brokerID = brokerID;
@@ -376,7 +368,6 @@ namespace cktrader {
 
 	void CtpMd::subscribe(SubscribeReq& subscribeReq)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		if (loginStatus)
 		{
 			subscribeMarketData(subscribeReq.symbol);
@@ -387,7 +378,6 @@ namespace cktrader {
 
 	int CtpMd::close()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		//该函数在原生API里没有，用于安全退出API用，原生的join似乎不太稳定
 		this->api->RegisterSpi(NULL);
 		this->api->Release();
@@ -397,13 +387,11 @@ namespace cktrader {
 
 	std::string CtpMd::getTradingDay()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		return api->GetTradingDay();
 	}
 
 	int CtpMd::subscribeMarketData(std::string instrumentID)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		char* buffer = (char*)instrumentID.c_str();
 		char* myreq[1] = { buffer };
 
@@ -413,7 +401,6 @@ namespace cktrader {
 
 	int CtpMd::unSubscribeMarketData(std::string instrumentID)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		char* buffer = (char*)instrumentID.c_str();
 		char* myreq[1] = { buffer };
 
@@ -423,7 +410,6 @@ namespace cktrader {
 
 	int CtpMd::subscribeForQuoteRsp(std::string instrumentID)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		char* buffer = (char*)instrumentID.c_str();
 		char* myreq[1] = { buffer };
 		int i = this->api->SubscribeForQuoteRsp(myreq, 1);
@@ -432,7 +418,6 @@ namespace cktrader {
 
 	int CtpMd::unSubscribeForQuoteRsp(std::string instrumentID)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		char* buffer = (char*)instrumentID.c_str();
 		char* myreq[1] = { buffer };;
 		int i = this->api->UnSubscribeForQuoteRsp(myreq, 1);

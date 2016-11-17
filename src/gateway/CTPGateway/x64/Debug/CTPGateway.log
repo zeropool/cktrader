@@ -185,50 +185,50 @@ e:\2106\c++\cktrader\include\eventservice\eventengine.h(37): warning C4251: 'ckt
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\xxatomic(180): note: see declaration of 'std::atomic<bool>'
 e:\2106\c++\cktrader\include\eventservice\eventengine.h(40): warning C4251: 'cktrader::EventEngine::the_mutex': class 'std::recursive_mutex' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\mutex(91): note: see declaration of 'std::recursive_mutex'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(546): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(543): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(547): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(544): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(660): warning C4244: '=': conversion from 'TThostFtdcMoneyType' to 'int', possible loss of data
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(981): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(647): warning C4244: '=': conversion from 'TThostFtdcMoneyType' to 'int', possible loss of data
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(955): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\direct.h(91): note: see declaration of 'getcwd'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(984): warning C4996: 'access': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _access. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(958): warning C4996: 'access': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _access. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(439): note: see declaration of 'access'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(986): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _mkdir. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(960): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _mkdir. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\direct.h(108): note: see declaration of 'mkdir'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(984): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(985): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(986): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(998): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(999): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1010): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
 e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1011): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1012): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1024): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1013): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1025): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
 e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1026): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
 e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1027): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1039): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1028): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1040): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1100): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1054): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1101): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1055): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1102): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1056): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1103): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1057): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1058): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1131): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1132): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1133): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1134): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1136): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctptd.cpp(1105): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
   ctpmd.cpp
 e:\2106\c++\cktrader\include\utils\datablk.h(91): warning C4251: 'Datablk::m_ptr': class 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>' needs to have dll-interface to be used by clients of struct 'Datablk'
@@ -417,24 +417,24 @@ e:\2106\c++\cktrader\include\eventservice\eventengine.h(37): warning C4251: 'ckt
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\xxatomic(180): note: see declaration of 'std::atomic<bool>'
 e:\2106\c++\cktrader\include\eventservice\eventengine.h(40): warning C4251: 'cktrader::EventEngine::the_mutex': class 'std::recursive_mutex' needs to have dll-interface to be used by clients of class 'cktrader::EventEngine'
   c:\program files (x86)\microsoft visual studio 14.0\vc\include\mutex(91): note: see declaration of 'std::recursive_mutex'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(196): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(197): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
 e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(198): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(310): warning C4244: '=': conversion from 'TThostFtdcLargeVolumeType' to 'int', possible loss of data
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(345): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(199): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(200): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(303): warning C4244: '=': conversion from 'TThostFtdcLargeVolumeType' to 'int', possible loss of data
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(337): warning C4996: 'getcwd': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getcwd. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\direct.h(91): note: see declaration of 'getcwd'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(348): warning C4996: 'access': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _access. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(340): warning C4996: 'access': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _access. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\corecrt_io.h(439): note: see declaration of 'access'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(350): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _mkdir. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(342): warning C4996: 'mkdir': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _mkdir. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\direct.h(108): note: see declaration of 'mkdir'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(367): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(359): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(368): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(360): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
-e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(369): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+e:\2106\c++\cktrader\src\gateway\ctpgateway\src\ctpmd.cpp(361): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: see declaration of 'strncpy'
   CTPGateway.cpp
 e:\2106\c++\cktrader\include\utils\datablk.h(91): warning C4251: 'Datablk::m_ptr': class 'std::unique_ptr<Datablk::Base,std::default_delete<_Ty>>' needs to have dll-interface to be used by clients of struct 'Datablk'

@@ -83,8 +83,6 @@ ServiceMgr::~ServiceMgr()
 //从json文件解析gateway
 bool ServiceMgr::initGateway()	
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	std::stringstream settingStream;
 
 	bool isRight = readFile(CKTRADER_SETTING_FILE, settingStream);
@@ -116,7 +114,6 @@ bool ServiceMgr::initGateway()
 //从dll动态加载gateway
 IGateway* ServiceMgr::loadGateWay(std::string name, std::string path)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IGateway*>::iterator it;
 	it = m_GateWayMap->find(name);
 	if (it != m_GateWayMap->end())
@@ -142,8 +139,6 @@ IGateway* ServiceMgr::loadGateWay(std::string name, std::string path)
 //从json文件解析strategy
 bool ServiceMgr::initStrategy()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 	std::stringstream settingStream;
 
 	bool isRight = readFile(CKTRADER_SETTING_FILE, settingStream);
@@ -172,7 +167,6 @@ bool ServiceMgr::initStrategy()
 //从dll动态加载strategy
 IStrategy* ServiceMgr::loadStrategy(std::string name,std::string path)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IStrategy*>::iterator it;
 	it = m_StrategyMap->find(name);
 	if (it != m_StrategyMap->end())
@@ -198,7 +192,6 @@ IStrategy* ServiceMgr::loadStrategy(std::string name,std::string path)
 //从本地字典内获取gateway
 IGateway* ServiceMgr::getGateWay(std::string gateWayName)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IGateway*>::iterator it;
 	it = m_GateWayMap->find(gateWayName);
 	if (it == m_GateWayMap->end())
@@ -213,7 +206,6 @@ IGateway* ServiceMgr::getGateWay(std::string gateWayName)
 
 IStrategy* ServiceMgr::getStrategy(std::string strategyName)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IStrategy*>::iterator it;
 	it = m_StrategyMap->find(strategyName);
 	if (it == m_StrategyMap->end())
@@ -228,7 +220,6 @@ IStrategy* ServiceMgr::getStrategy(std::string strategyName)
 
 bool ServiceMgr::initStrategy(std::string strategyName)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IStrategy*>::iterator it;
 	it = m_StrategyMap->find(strategyName);
 	if (it == m_StrategyMap->end())
@@ -243,7 +234,6 @@ bool ServiceMgr::initStrategy(std::string strategyName)
 
 bool ServiceMgr::startStrategy(std::string strategyName)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IStrategy*>::iterator it;
 	it = m_StrategyMap->find(strategyName);
 	if (it == m_StrategyMap->end())
@@ -258,7 +248,6 @@ bool ServiceMgr::startStrategy(std::string strategyName)
 
 bool ServiceMgr::stopStrategy(std::string strategyName)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::map<std::string, IStrategy*>::iterator it;
 	it = m_StrategyMap->find(strategyName);
 	if (it == m_StrategyMap->end())
@@ -273,7 +262,6 @@ bool ServiceMgr::stopStrategy(std::string strategyName)
 
 bool ServiceMgr::readFile(std::string fileName,std::stringstream& stringText)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::ifstream is(fileName, std::ifstream::binary);
 
 	bool ret_value = false;
@@ -305,7 +293,6 @@ bool ServiceMgr::readFile(std::string fileName,std::stringstream& stringText)
 
 bool ServiceMgr::writeFile(std::string fileName, std::stringstream& stringText)
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	std::ofstream ofs(fileName, std::ofstream::out);
 
 	ofs << stringText.str();
@@ -317,13 +304,11 @@ bool ServiceMgr::writeFile(std::string fileName, std::stringstream& stringText)
 
 std::map<std::string, IGateway*>* ServiceMgr::getGatewayMap()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	return m_GateWayMap;
 }
 
 std::map<std::string, IStrategy*>* ServiceMgr::getStrategyMap()
 {
-	std::unique_lock<std::recursive_mutex> lck(the_mutex);
 	return m_StrategyMap;
 }
 

@@ -11,6 +11,7 @@
 #include <set>
 #include <string>
 #include <mutex>
+#include <atomic>
 
 namespace cktrader {
 
@@ -88,8 +89,8 @@ namespace cktrader {
 		std::string gateWayName;
 		int reqID; //请求id
 
-		bool connectionStatus = false;      // 连接状态
-		bool loginStatus = false;//            登录状态
+		std::atomic<bool> connectionStatus = false;      // 连接状态
+		std::atomic<bool> loginStatus = false;//            登录状态
 
 		std::set<std::string> *subscribedSymbols = nullptr;//    已订阅合约代码
 

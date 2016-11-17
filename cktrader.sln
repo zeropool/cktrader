@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CE9EE6A2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testEvent", "test\testEvent\testEvent.vcxproj", "{C2E6F64F-4BC9-4A7C-B5F7-DE688E2BA062}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testctpgateway", "test\testctpgateway\testctpgateway.vcxproj", "{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -77,6 +79,14 @@ Global
 		{C2E6F64F-4BC9-4A7C-B5F7-DE688E2BA062}.Release|x64.Build.0 = Release|x64
 		{C2E6F64F-4BC9-4A7C-B5F7-DE688E2BA062}.Release|x86.ActiveCfg = Release|Win32
 		{C2E6F64F-4BC9-4A7C-B5F7-DE688E2BA062}.Release|x86.Build.0 = Release|Win32
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Debug|x64.ActiveCfg = Debug|x64
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Debug|x64.Build.0 = Debug|x64
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Debug|x86.ActiveCfg = Debug|Win32
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Debug|x86.Build.0 = Debug|Win32
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Release|x64.ActiveCfg = Release|x64
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Release|x64.Build.0 = Release|x64
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Release|x86.ActiveCfg = Release|Win32
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,5 +96,6 @@ Global
 		{50A08B94-27F4-4299-8F47-84D8D35FBD3E} = {CE9EE6A2-5CBD-46A1-9681-F7C0A5FB17A2}
 		{613B716A-1FEC-4940-A774-01859BD35F1B} = {A3A7592C-7CFD-4022-A606-97F11C4FB316}
 		{C2E6F64F-4BC9-4A7C-B5F7-DE688E2BA062} = {CE9EE6A2-5CBD-46A1-9681-F7C0A5FB17A2}
+		{07518DAB-E5F1-46B0-8BBC-AD35A9F7078A} = {CE9EE6A2-5CBD-46A1-9681-F7C0A5FB17A2}
 	EndGlobalSection
 EndGlobal

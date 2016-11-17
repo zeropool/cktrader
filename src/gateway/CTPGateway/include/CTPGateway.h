@@ -9,6 +9,7 @@
 #include "utils/cktypes.h"
 #include "gateway/tgateway_def.h"
 
+#include <atomic>
 
 namespace cktrader {
 
@@ -50,8 +51,8 @@ public:
 
     void query(Datablk& notUse);
 
-    bool mdConnected = false;
-    bool tdConnected = false;
+    std::atomic<bool> mdConnected = false;
+	std::atomic<bool> tdConnected = false;
 
 private:
 	EventEngine *m_event_service;

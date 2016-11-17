@@ -49,8 +49,11 @@ namespace cktrader {
 	///当客户端与交易后台建立起通信连接时（还未登录前），该方法被调用。
 	void CtpTd::OnFrontConnected()
 	{
+		CtpData data = CtpData();
+
 		Task task = Task();
 		task.type = TDONFRONTCONNECTED;
+		task.task_data = data;
 		m_event_service->put(task);
 	}
 
@@ -492,8 +495,6 @@ namespace cktrader {
 	//-------------------------------------------------------------------------------------
 	void CtpTd::processFrontConnected(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		connectionStatus = true;
 
 		LogData log = LogData();
@@ -506,8 +507,6 @@ namespace cktrader {
 
 	void CtpTd::processFrontDisconnected(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		connectionStatus = false;
 		loginStatus = false;
 		gateWay->tdConnected = false;
@@ -521,8 +520,6 @@ namespace cktrader {
 
 	void CtpTd::processRspUserLogin(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspUserLoginField task_data = ctp_data.task_data.cast<CThostFtdcRspUserLoginField>();
@@ -560,8 +557,6 @@ namespace cktrader {
 
 	void CtpTd::processRspUserLogout(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -588,8 +583,6 @@ namespace cktrader {
 
 	void CtpTd::processRspOrderInsert(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error =	ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -603,8 +596,6 @@ namespace cktrader {
 
 	void CtpTd::processRspOrderAction(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -618,8 +609,6 @@ namespace cktrader {
 
 	void CtpTd::processRspSettlementInfoConfirm(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		LogData log = LogData();
 		log.gateWayName = gateWayName;
 		log.logContent = "结算信息确认完成";
@@ -633,8 +622,6 @@ namespace cktrader {
 
 	void CtpTd::processRspQryInvestorPosition(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcInvestorPositionField task_data = ctp_data.task_data.cast<CThostFtdcInvestorPositionField>();
@@ -694,8 +681,6 @@ namespace cktrader {
 
 	void CtpTd::processRspQryTradingAccount(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcTradingAccountField task_data = ctp_data.task_data.cast<CThostFtdcTradingAccountField>();
@@ -723,8 +708,6 @@ namespace cktrader {
 
 	void CtpTd::processRspQryInstrument(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcInstrumentField task_data = ctp_data.task_data.cast<CThostFtdcInstrumentField>();
@@ -781,8 +764,6 @@ namespace cktrader {
 
 	void CtpTd::processRspError(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -796,14 +777,15 @@ namespace cktrader {
 
 	void CtpTd::processRtnOrder(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcOrderField task_data = ctp_data.task_data.cast<CThostFtdcOrderField>();
 
 		int newref = std::stoi(std::string(task_data.OrderRef), nullptr);
-		orderRef = std::max(orderRef, newref);
+		if (orderRef < newref)
+		{
+			orderRef = newref;
+		}
 
 		OrderData order = OrderData();
 		order.gateWayName = gateWayName;
@@ -880,8 +862,6 @@ namespace cktrader {
 
 	void CtpTd::processRtnTrade(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcTradeField task_data = ctp_data.task_data.cast<CThostFtdcTradeField>();
@@ -938,8 +918,6 @@ namespace cktrader {
 
 	void CtpTd::processErrRtnOrderInsert(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -953,8 +931,6 @@ namespace cktrader {
 
 	void CtpTd::processErrRtnOrderAction(Datablk& data)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		CtpData ctp_data = data.cast<CtpData>();
 
 		CThostFtdcRspInfoField task_error = ctp_data.task_error.cast<CThostFtdcRspInfoField>();
@@ -968,8 +944,6 @@ namespace cktrader {
 
 	void CtpTd::connect(std::string userID, std::string password, std::string brokerID, std::string address)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
-
 		this->userID = userID;
 		this->password = password;
 		this->brokerID = brokerID;
@@ -1001,7 +975,6 @@ namespace cktrader {
 
 	void CtpTd::login()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		reqID++;
 		CThostFtdcReqUserLoginField myreq = CThostFtdcReqUserLoginField();
 		memset(&myreq, 0, sizeof(myreq));
@@ -1018,7 +991,6 @@ namespace cktrader {
 
 	void CtpTd::qryAccount()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		reqID++;
 		CThostFtdcQryTradingAccountField myreq = CThostFtdcQryTradingAccountField();
 		memset(&myreq, 0, sizeof(myreq));
@@ -1031,7 +1003,6 @@ namespace cktrader {
 
 	void CtpTd::qryPosition()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		reqID++;
 
 		CThostFtdcQryInvestorPositionField myreq = CThostFtdcQryInvestorPositionField();
@@ -1043,7 +1014,6 @@ namespace cktrader {
 
 	std::string CtpTd::sendOrder(OrderReq& req)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		reqID++;
 
 		orderRef++;
@@ -1122,7 +1092,6 @@ namespace cktrader {
 
 	void CtpTd::cancelOrder(CancelOrderReq & req)
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		reqID++;
 
 		CThostFtdcInputOrderActionField myreq = CThostFtdcInputOrderActionField();
@@ -1144,7 +1113,6 @@ namespace cktrader {
 
 	void CtpTd::close()
 	{
-		std::unique_lock<std::recursive_mutex> lck(the_mutex);
 		this->api->RegisterSpi(NULL);
 		this->api->Release();
 		this->api = nullptr;
